@@ -25,7 +25,10 @@ export const errorHandler = (
     case 406:
       throw new HttpException({ message: 'Not Acceptable' }, statusCode);
     case 409:
-      throw new HttpException({ message: 'user already used' }, statusCode);
+      throw new HttpException(
+        { message: `Recode '${message}' already used` },
+        statusCode,
+      );
     default:
       throw new HttpException({ message }, 500);
   }
